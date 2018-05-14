@@ -5,7 +5,7 @@ class VoterModel {
     ctx.ensureIsAuthenticated();
     const fetchPayload = {
       table: {
-        name: 'voter_file',
+        name: 'shared.voter_file',
         uniqueColumn: 'state_file_id',
       },
       where,

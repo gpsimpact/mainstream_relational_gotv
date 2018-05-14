@@ -12,7 +12,7 @@ class VoterConnector {
 
   voterById = new DataLoader(keys =>
     this.sqlDb
-      .table('voter_file')
+      .table('shared.voter_file')
       .whereIn('state_file_id', keys)
       .select()
       .then(mapTo(keys, x => x.state_file_id))

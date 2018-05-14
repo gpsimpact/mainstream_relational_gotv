@@ -26,7 +26,7 @@ exports.up = function(knex) {
               LEFT JOIN task_availability tasks ON tasks.pv_id = potential_voters.id
               GROUP BY 1
             ) pv_task_sums ON potential_voters.id = pv_task_sums.pv_id
-            LEFT JOIN voter_file on potential_voters.state_file_id = voter_file.state_file_id
+            LEFT JOIN shared.voter_file voter_file on potential_voters.state_file_id = voter_file.state_file_id
           )
           SELECT
             id,

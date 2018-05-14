@@ -34,6 +34,7 @@ web.app:
 # add a postgres database
 data.db:
   image: nanobox/postgresql:9.6
+  local_only: true
 
 # add redis
 data.redis:
