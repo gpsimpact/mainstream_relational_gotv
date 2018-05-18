@@ -2,6 +2,7 @@ export default {
   form_schema: {
     formTitle: 'This is a Select task',
     submitButtonText: 'Mark as completed!',
+    description: 'Fill out a vote-by-mail application',
     fields: [
       {
         widget: 'markdown',
