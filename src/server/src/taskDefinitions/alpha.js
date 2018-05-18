@@ -2,7 +2,6 @@ export default {
   form_schema: {
     formTitle: 'First Example task',
     submitButtonText: 'Complete',
-    description: 'Introduce yourself',
     fields: [
       {
         widget: 'markdown',
@@ -52,4 +51,5 @@ export default {
   point_value: 10,
   status: 'INCOMPLETE',
   sequence: 1,
+  description: 'Introduce yourself',
 };

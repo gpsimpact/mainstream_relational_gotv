@@ -2,7 +2,6 @@ export default {
   form_schema: {
     formTitle: 'This is a Select task',
     submitButtonText: 'Mark as completed!',
-    description: 'Fill out a vote-by-mail application',
     fields: [
       {
         widget: 'markdown',
@@ -37,4 +36,5 @@ export default {
   point_value: 10,
   status: 'INCOMPLETE',
   sequence: 2,
+  description: 'Fill out a vote-by-mail application',
 };

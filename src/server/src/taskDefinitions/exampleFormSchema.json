@@ -1,7 +1,6 @@
 {
   "formTitle": "This is form title for second task",
   "submitButtonText": "Woohoo!",
-  "description": "Introduce yourself",
   "fields": [
     {
       "id": "beta",
