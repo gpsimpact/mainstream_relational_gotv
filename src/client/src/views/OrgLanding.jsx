@@ -26,7 +26,7 @@ class OrgLanding extends PureComponent {
           }
           return (
             <div>
-              <section className="hero is-primary is-bold">
+              <section className="hero is-vtov-blue is-bold">
                 <div className="hero-body">
                   <div className="container">
                     <h1 className="title">{organization.name}</h1>
@@ -57,7 +57,7 @@ class OrgLanding extends PureComponent {
                       <div className="content">
                         {!isLoggedIn() ? (
                           <Link
-                            className="button is-primary is-large"
+                            className="button is-vtov-blue is-large"
                             to={`/auth/register?org_id=${organization.id}`}
                           >
                             Register!
@@ -66,7 +66,7 @@ class OrgLanding extends PureComponent {
                           <div>
                             {hasOrgAccess(organization.id) ? (
                               <Link
-                                className="button is-primary is-large"
+                                className="button is-vtov-blue is-large"
                                 to={`/u/${organization.id}`}
                               >
                                 Go To Dashboard!

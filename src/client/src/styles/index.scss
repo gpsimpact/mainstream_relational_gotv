@@ -3,17 +3,22 @@
 
 
 // 1. Import the initial variables
-// @import "bulma/sass/utilities/initial-variables";
-// @import "bulma/sass/utilities/functions";
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
 // // 2. Setup your Custom Colors
-// $purple: hsl(275,87%,45%);
+$vtov-blue: #276cda;
+$vtov-blue-invert: #fff;
 // $purple-invert: findColorInvert($purple);
+// 3. Set the derived variables
+// Use the new blue as the primary color
+// $primary: $vtov-blue;
+// $primary-invert: $vtov-blue-invert;
 // // 3. Add new color variables to the color map.
 // @import "bulma/sass/utilities/derived-variables.sass";
-// $addColors: (
-//   "purple":($purple, $purple-invert),
-// );
-// $colors: map-merge($colors, $addColors);
+$addColors: (
+  "vtov-blue":($vtov-blue, $vtov-blue-invert),
+);
+$colors: map-merge($colors, $addColors);
 
 
 

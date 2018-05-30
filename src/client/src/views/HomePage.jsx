@@ -7,7 +7,7 @@ class HomePage extends PureComponent {
   render() {
     return (
       <div>
-        <section className="hero is-medium is-primary is-bold">
+        <section className="hero is-medium is-vtov-blue is-bold">
           <div className="hero-body">
             <div className="container">
               <h1 className="title">Relational GOTV</h1>
@@ -20,12 +20,30 @@ class HomePage extends PureComponent {
             <div className="columns">
               <div className="column">
                 <div className="content">
-                  <h2>Welcome!</h2>
+                  <h2>Ready to make a difference?</h2>
                   <p>
-                    This is the main page. This should be promotional text to encourage
-                    organizations to join the site and volunteers to join up with their org.
+                    Welcome to the online tool for the non-partisan Voter to Voter project. We are
+                    using this website to connect partner organization ambassadors with the every
+                    day voters they know. As an ambassador for your organization, you'll have a
+                    dashboard where you can identify your friends, family, or peers, and guide them
+                    through the process of becoming engaged voters. The tool will let you keep track
+                    of their progress, and will provide tips, timely messaging, and optional tasks
+                    to help you get them to vote. This project is strictly non-partisan, and the
+                    tool imposes no specific position or policy messaging, except, of course, that
+                    voting is important.
                   </p>
-                  <h2>You may register with one of the following participating organizations</h2>
+                  <p>
+                    If you have any questions, you can{' '}
+                    <a href="https://www.be-a-voter.org/voter_to_voter">
+                      learn more about Voter to Voter at our website.
+                    </a>
+                  </p>
+                  <h2>Voter to Voter Partner Organizations</h2>
+                  <p>
+                    Find your organization in the list below and click to learn more about them,
+                    contact them, or register as an ambassador for their Voter to Voter effort.
+                    Thank you for being engaged.
+                  </p>
                   <Query query={ALL_ORGS} variables={{ limit: 200 }}>
                     {({ loading, error, data }) => {
                       if (loading) return <div className="loader" />;
