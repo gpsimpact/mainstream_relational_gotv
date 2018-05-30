@@ -38,10 +38,22 @@ class LinkedVoterFileRecordReviewModal extends Component {
             <div className="content">
               {potentialVoter.voterFileRecord.state_file_id ? (
                 <div>
-                  <h4>
-                    {potentialVoter.first_name} {potentialVoter.last_name} is linked to voter file
-                    record:
-                  </h4>
+                  <p>
+                    The contact you created with the name{' '}
+                    <strong>
+                      {potentialVoter.first_name} {potentialVoter.last_name}
+                    </strong>{' '}
+                    has been linked to voter file record with the name{' '}
+                    <strong>
+                      {potentialVoter.voterFileRecord.first_name}{' '}
+                      {potentialVoter.voterFileRecord.last_name}
+                    </strong>{' '}
+                    - If this is not a correct linkage, remove the association by clicking the red
+                    button below and find a better match for{' '}
+                    <strong>
+                      {potentialVoter.first_name} {potentialVoter.last_name}
+                    </strong>.
+                  </p>
                   <dl>
                     <dt>
                       <strong>KS Voter File Id</strong>
