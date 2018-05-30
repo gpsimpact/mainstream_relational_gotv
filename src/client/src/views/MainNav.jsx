@@ -12,7 +12,7 @@ class MainNav extends PureComponent {
       <nav className="navbar has-shadow">
         <div className="navbar-brand">
           <Link className="navbar-item is-size-4 has-text-weight-bold" to="/">
-            RGOTV
+            <img src="/vtovlogo.png" alt="Voter to Voter. Personal. Powerful." height="40" />
           </Link>
           <div className="navbar-burger">
             <span />
