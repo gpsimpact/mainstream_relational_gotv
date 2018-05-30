@@ -30,7 +30,7 @@ class MainNav extends PureComponent {
           <div className="navbar-end">
             {this.props.isLoggedIn ? (
               <div className="navbar-item">
-                <Link className="button is-primary" to={`/u/`}>
+                <Link className="button is-vtov-blue" to={`/u/`}>
                   Go To Dashboard!
                 </Link>
               </div>
@@ -72,7 +72,7 @@ class MainNav extends PureComponent {
             ) : (
               <div className="navbar-item">
                 <div
-                  className="button is-primary is-outlined"
+                  className="button is-vtov-blue is-outlined"
                   onClick={() => {
                     this.props.history.push('/auth/login');
                   }}

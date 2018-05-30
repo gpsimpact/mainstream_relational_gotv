@@ -7,7 +7,7 @@ class HomePage extends PureComponent {
   render() {
     return (
       <div>
-        <section className="hero is-medium is-vtov-blue is-bold">
+        <section className="hero is-vtov-blue is-bold">
           <div className="hero-body">
             <div className="container">
               <h1 className="title">Relational GOTV</h1>
