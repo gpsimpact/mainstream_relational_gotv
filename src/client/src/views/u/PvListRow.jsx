@@ -64,199 +64,202 @@ class PvListRow extends PureComponent {
                 )}
               </div>
               <div className="column">
-                <div className="columns">
-                  <div className="column">
-                    <div className="field is-grouped is-grouped-multiline">
-                      <div className="control">
-                        <div
-                          className="tags has-addons hover-hand"
-                          onClick={this.props.openTaskModal}
-                        >
-                          <span
-                            className={classNames('tag', 'is-white', {
-                              'tag-button-danger': content.countAvailableTasks > 0,
-                              'tag-button-success': content.countAvailableTasks === 0,
-                            })}
+                <div className="custom-controls">
+                  <div className="columns">
+                    <div className="column">
+                      <div className="field is-grouped is-grouped-multiline">
+                        <div className="control">
+                          <div
+                            className="tags has-addons hover-hand"
+                            onClick={this.props.openTaskModal}
                           >
-                            <abbr title="The count of available tasks for that contact.">
-                              TASKS:
-                            </abbr>
-                          </span>
-                          <span
-                            className={classNames('tag', {
-                              'is-danger': content.countAvailableTasks > 0,
-                              'is-success': content.countAvailableTasks === 0,
-                            })}
-                          >
-                            {content.countCompletedTasks}/{content.countAvailableTasks +
-                              content.countCompletedTasks}
-                          </span>
+                            <span
+                              className={classNames('tag', 'is-white', {
+                                'tag-button-danger': content.countAvailableTasks > 0,
+                                'tag-button-success': content.countAvailableTasks === 0,
+                              })}
+                            >
+                              <abbr title="The count of available tasks for that contact.">
+                                TASKS:
+                              </abbr>
+                            </span>
+                            <span
+                              className={classNames('tag', {
+                                'is-danger': content.countAvailableTasks > 0,
+                                'is-success': content.countAvailableTasks === 0,
+                              })}
+                            >
+                              {content.countCompletedTasks}/{content.countAvailableTasks +
+                                content.countCompletedTasks}
+                            </span>
+                          </div>
                         </div>
-                      </div>
 
-                      <div className="control">
-                        <div
-                          className="tags has-addons hover-hand"
-                          onClick={this.props.openVoterReviewModal}
-                        >
-                          <span
-                            className={classNames('tag', 'is-white', {
-                              'tag-button-danger': content.voterFileRecord.state_file_id === null,
-                              'tag-button-success': content.voterFileRecord.state_file_id !== null,
-                            })}
+                        <div className="control">
+                          <div
+                            className="tags has-addons hover-hand"
+                            onClick={this.props.openVoterReviewModal}
                           >
-                            <abbr title="Has this contact been matched to a registered voter in the voter file?">
-                              Registered?
-                            </abbr>
-                          </span>
-                          <span
-                            className={classNames('tag', {
-                              'is-danger': content.voterFileRecord.state_file_id === null,
-                              'is-success': content.voterFileRecord.state_file_id !== null,
-                            })}
-                          >
-                            {content.voterFileRecord.state_file_id ? 'Yes' : 'No'}
-                          </span>
+                            <span
+                              className={classNames('tag', 'is-white', {
+                                'tag-button-danger': content.voterFileRecord.state_file_id === null,
+                                'tag-button-success':
+                                  content.voterFileRecord.state_file_id !== null,
+                              })}
+                            >
+                              <abbr title="Has this contact been matched to a registered voter in the voter file?">
+                                Registered?
+                              </abbr>
+                            </span>
+                            <span
+                              className={classNames('tag', {
+                                'is-danger': content.voterFileRecord.state_file_id === null,
+                                'is-success': content.voterFileRecord.state_file_id !== null,
+                              })}
+                            >
+                              {content.voterFileRecord.state_file_id ? 'Yes' : 'No'}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  {content.voterFileRecord && content.voterFileRecord.state_file_id ? (
+                    <div>
+                      <div className="columns">
+                        <div className="column">
+                          <strong>Primary Election (Aug 7)</strong>
+                          <br />
+                          <div className="field is-grouped is-grouped-multiline">
+                            <div className="control">
+                              <div
+                                className="tags has-addons hover-hand"
+                                onClick={() => this.props.openVoteByMailModal('primary')}
+                              >
+                                <span
+                                  className={classNames('tag', 'is-white', {
+                                    'tag-button-danger':
+                                      content.voterFileRecord.vo_ab_requested_primary === false,
+                                    'tag-button-success':
+                                      content.voterFileRecord.vo_ab_requested_primary === true,
+                                  })}
+                                >
+                                  <abbr title="Has this contact applied for a mail in ballot?">
+                                    VBM?
+                                  </abbr>
+                                </span>
+                                <span
+                                  className={classNames('tag', {
+                                    'is-danger':
+                                      content.voterFileRecord.vo_ab_requested_primary === false,
+                                    'is-success':
+                                      content.voterFileRecord.vo_ab_requested_primary === true,
+                                  })}
+                                >
+                                  {content.voterFileRecord.vo_ab_requested_primary ? 'Yes' : 'No'}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="control">
+                              <div
+                                className="tags has-addons hover-hand"
+                                onClick={() => this.props.openVotedModal('primary')}
+                              >
+                                <span
+                                  className={classNames('tag', 'is-white', {
+                                    'tag-button-danger':
+                                      content.voterFileRecord.vo_voted_primary === false,
+                                    'tag-button-success':
+                                      content.voterFileRecord.vo_voted_primary === true,
+                                  })}
+                                >
+                                  <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
+                                    Voted?
+                                  </abbr>
+                                </span>
+                                <span
+                                  className={classNames('tag', {
+                                    'is-danger': content.voterFileRecord.vo_voted_primary === false,
+                                    'is-success': content.voterFileRecord.vo_voted_primary === true,
+                                  })}
+                                >
+                                  {content.voterFileRecord.vo_voted_primary ? 'Yes' : 'No'}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="columns">
+                        <div className="column">
+                          <strong>General Election (Nov 6)</strong>
+                          <br />
+                          <div className="field is-grouped is-grouped-multiline">
+                            <div className="control">
+                              <div
+                                className="tags has-addons hover-hand"
+                                onClick={() => this.props.openVoteByMailModal('general')}
+                              >
+                                <span
+                                  className={classNames('tag', 'is-white', {
+                                    'tag-button-danger':
+                                      content.voterFileRecord.vo_ab_requested_general === false,
+                                    'tag-button-success':
+                                      content.voterFileRecord.vo_ab_requested_general === true,
+                                  })}
+                                >
+                                  <abbr title="Has this contact applied for a mail in ballot?">
+                                    VBM?
+                                  </abbr>
+                                </span>
+                                <span
+                                  className={classNames('tag', {
+                                    'is-danger':
+                                      content.voterFileRecord.vo_ab_requested_general === false,
+                                    'is-success':
+                                      content.voterFileRecord.vo_ab_requested_general === true,
+                                  })}
+                                >
+                                  {content.voterFileRecord.vo_ab_requested_general ? 'Yes' : 'No'}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="control">
+                              <div
+                                className="tags has-addons hover-hand"
+                                onClick={() => this.props.openVotedModal('general')}
+                              >
+                                <span
+                                  className={classNames('tag', 'is-white', {
+                                    'tag-button-danger':
+                                      content.voterFileRecord.vo_voted_primary === false,
+                                    'tag-button-success':
+                                      content.voterFileRecord.vo_voted_primary === true,
+                                  })}
+                                >
+                                  <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
+                                    Voted?
+                                  </abbr>
+                                </span>
+                                <span
+                                  className={classNames('tag', {
+                                    'is-danger': content.voterFileRecord.vo_voted_primary === false,
+                                    'is-success': content.voterFileRecord.vo_voted_primary === true,
+                                  })}
+                                >
+                                  {content.voterFileRecord.vo_voted_primary ? 'Yes' : 'No'}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
-                {content.voterFileRecord && content.voterFileRecord.state_file_id ? (
-                  <div>
-                    <div className="columns">
-                      <div className="column">
-                        <strong>Primary Election (Aug 7)</strong>
-                        <br />
-                        <div className="field is-grouped is-grouped-multiline">
-                          <div className="control">
-                            <div
-                              className="tags has-addons hover-hand"
-                              onClick={() => this.props.openVoteByMailModal('primary')}
-                            >
-                              <span
-                                className={classNames('tag', 'is-white', {
-                                  'tag-button-danger':
-                                    content.voterFileRecord.vo_ab_requested_primary === false,
-                                  'tag-button-success':
-                                    content.voterFileRecord.vo_ab_requested_primary === true,
-                                })}
-                              >
-                                <abbr title="Has this contact applied for a mail in ballot?">
-                                  VBM?
-                                </abbr>
-                              </span>
-                              <span
-                                className={classNames('tag', {
-                                  'is-danger':
-                                    content.voterFileRecord.vo_ab_requested_primary === false,
-                                  'is-success':
-                                    content.voterFileRecord.vo_ab_requested_primary === true,
-                                })}
-                              >
-                                {content.voterFileRecord.vo_ab_requested_primary ? 'Yes' : 'No'}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="control">
-                            <div
-                              className="tags has-addons hover-hand"
-                              onClick={() => this.props.openVotedModal('primary')}
-                            >
-                              <span
-                                className={classNames('tag', 'is-white', {
-                                  'tag-button-danger':
-                                    content.voterFileRecord.vo_voted_primary === false,
-                                  'tag-button-success':
-                                    content.voterFileRecord.vo_voted_primary === true,
-                                })}
-                              >
-                                <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
-                                  Voted?
-                                </abbr>
-                              </span>
-                              <span
-                                className={classNames('tag', {
-                                  'is-danger': content.voterFileRecord.vo_voted_primary === false,
-                                  'is-success': content.voterFileRecord.vo_voted_primary === true,
-                                })}
-                              >
-                                {content.voterFileRecord.vo_voted_primary ? 'Yes' : 'No'}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="columns">
-                      <div className="column">
-                        <strong>General Election (Nov 6)</strong>
-                        <br />
-                        <div className="field is-grouped is-grouped-multiline">
-                          <div className="control">
-                            <div
-                              className="tags has-addons hover-hand"
-                              onClick={() => this.props.openVoteByMailModal('general')}
-                            >
-                              <span
-                                className={classNames('tag', 'is-white', {
-                                  'tag-button-danger':
-                                    content.voterFileRecord.vo_ab_requested_general === false,
-                                  'tag-button-success':
-                                    content.voterFileRecord.vo_ab_requested_general === true,
-                                })}
-                              >
-                                <abbr title="Has this contact applied for a mail in ballot?">
-                                  VBM?
-                                </abbr>
-                              </span>
-                              <span
-                                className={classNames('tag', {
-                                  'is-danger':
-                                    content.voterFileRecord.vo_ab_requested_general === false,
-                                  'is-success':
-                                    content.voterFileRecord.vo_ab_requested_general === true,
-                                })}
-                              >
-                                {content.voterFileRecord.vo_ab_requested_general ? 'Yes' : 'No'}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="control">
-                            <div
-                              className="tags has-addons hover-hand"
-                              onClick={() => this.props.openVotedModal('general')}
-                            >
-                              <span
-                                className={classNames('tag', 'is-white', {
-                                  'tag-button-danger':
-                                    content.voterFileRecord.vo_voted_primary === false,
-                                  'tag-button-success':
-                                    content.voterFileRecord.vo_voted_primary === true,
-                                })}
-                              >
-                                <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
-                                  Voted?
-                                </abbr>
-                              </span>
-                              <span
-                                className={classNames('tag', {
-                                  'is-danger': content.voterFileRecord.vo_voted_primary === false,
-                                  'is-success': content.voterFileRecord.vo_voted_primary === true,
-                                })}
-                              >
-                                {content.voterFileRecord.vo_voted_primary ? 'Yes' : 'No'}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
               </div>
             </div>
             <hr />

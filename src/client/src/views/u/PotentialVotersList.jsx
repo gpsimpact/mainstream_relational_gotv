@@ -51,8 +51,10 @@ class PotentialVotersList extends PureComponent {
   };
 
   cache = new CellMeasurerCache({
-    defaultHeight: 50,
-    fixedWidth: true,
+    // defaultHeight: 250,
+    // fixedWidth: true,
+    minHeight: 250,
+    // fixedHeight: true,
   });
 
   render() {
