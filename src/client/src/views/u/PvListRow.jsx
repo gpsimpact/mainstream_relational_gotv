@@ -24,11 +24,13 @@ class PvListRow extends PureComponent {
                     <strong>
                       {content.first_name} {content.last_name}
                     </strong>{' '}
-                    (<a href="#" onClick={this.props.openPvEditModal}>
-                      Edit
-                    </a>) (<a href="#" onClick={this.props.openDeleteModal}>
-                      Delete
-                    </a>)
+                    <small>
+                      (<a href="#" onClick={this.props.openPvEditModal}>
+                        Edit
+                      </a>) (<a href="#" onClick={this.props.openDeleteModal}>
+                        Delete
+                      </a>)
+                    </small>
                     <br />
                     as{' '}
                     <a href="#" onClick={this.props.openVoterReviewModal}>
@@ -53,7 +55,14 @@ class PvListRow extends PureComponent {
                   <div className="content">
                     <strong>
                       {content.first_name} {content.last_name}
-                    </strong>
+                    </strong>{' '}
+                    <small>
+                      (<a href="#" onClick={this.props.openPvEditModal}>
+                        Edit
+                      </a>) (<a href="#" onClick={this.props.openDeleteModal}>
+                        Delete
+                      </a>)
+                    </small>
                     <br />
                     <small>{content.city}</small>
                     <br />
