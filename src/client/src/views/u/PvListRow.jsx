@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { faEdit, faTrashAlt } from '@fortawesome/fontawesome-pro-solid';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+// import { faEdit, faTrashAlt } from '@fortawesome/fontawesome-pro-solid';
+// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CellMeasurer } from 'react-virtualized';
