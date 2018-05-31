@@ -7,7 +7,7 @@ export default `
     slug: String!
     contact_name: String!
     contact_email: String!
-    contact_phone: String!
+    contact_phone: String
     admin_notes: String
   }
 

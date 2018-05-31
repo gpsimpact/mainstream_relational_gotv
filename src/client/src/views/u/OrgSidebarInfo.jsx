@@ -23,8 +23,12 @@ class OrgSidebarInfo extends PureComponent {
                   <strong>For assistance contact:</strong>
                   <br />
                   {organization.contact_name} <br />
-                  <FontAwesomeIcon icon={faPhone} />{' '}
-                  <span style={{ paddingLeft: 20 }}>{organization.contact_phone}</span> <br />
+                  {organization.contact_phone ? (
+                    <div>
+                      <FontAwesomeIcon icon={faPhone} />{' '}
+                      <span style={{ paddingLeft: 20 }}>{organization.contact_phone}</span> <br />
+                    </div>
+                  ) : null}
                   <FontAwesomeIcon icon={faAt} />
                   <span style={{ paddingLeft: 20 }}>{organization.contact_email}</span>
                 </p>

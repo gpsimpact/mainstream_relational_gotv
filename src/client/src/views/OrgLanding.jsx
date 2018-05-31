@@ -43,9 +43,13 @@ class OrgLanding extends PureComponent {
                         <h2>For more information contact:</h2>
                         <p>
                           {organization.contact_name} <br />
-                          <FontAwesomeIcon icon={faPhone} />{' '}
-                          <span style={{ paddingLeft: 20 }}>{organization.contact_phone}</span>{' '}
-                          <br />
+                          {organization.contact_phone ? (
+                            <div>
+                              <FontAwesomeIcon icon={faPhone} />{' '}
+                              <span style={{ paddingLeft: 20 }}>{organization.contact_phone}</span>{' '}
+                              <br />
+                            </div>
+                          ) : null}
                           <FontAwesomeIcon icon={faAt} />
                           <span style={{ paddingLeft: 20 }}>{organization.contact_email}</span>
                         </p>
