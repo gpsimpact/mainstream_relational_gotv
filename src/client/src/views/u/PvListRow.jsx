@@ -22,14 +22,23 @@ class PvListRow extends PureComponent {
                 {content.voterFileRecord.state_file_id ? (
                   <div className="content">
                     <strong>
-                      {content.voterFileRecord.first_name} {content.voterFileRecord.last_name} ({
-                        content.voterFileRecord.party
-                      })
-                    </strong>
+                      {content.first_name} {content.last_name}
+                    </strong>{' '}
+                    (<a href="#" onClick={this.props.openPvEditModal}>
+                      Edit
+                    </a>) (<a href="#" onClick={this.props.openDeleteModal}>
+                      Delete
+                    </a>)
+                    <br />
+                    as{' '}
+                    <a href="#" onClick={this.props.openVoterReviewModal}>
+                      {content.voterFileRecord.first_name} {content.voterFileRecord.last_name}
+                    </a>{' '}
+                    ({content.voterFileRecord.party})
                     <br />
                     <small>
-                      {content.voterFileRecord.home_address} - {content.voterFileRecord.city},{' '}
-                      {content.voterFileRecord.state} {content.voterFileRecord.zipcode}
+                      {content.voterFileRecord.city}, {content.voterFileRecord.state}{' '}
+                      {content.voterFileRecord.zipcode}
                     </small>
                     <br />
                     <small>
@@ -249,30 +258,6 @@ class PvListRow extends PureComponent {
                   </div>
                 ) : null}
               </div>
-              <div className="column is-one-fifth">
-                <div className="field is-grouped">
-                  <p className="control">
-                    {content.voterFileRecord.state_file_id ? null : (
-                      <a
-                        className="button is-danger is-outlined"
-                        onClick={this.props.openPvEditModal}
-                      >
-                        <span className="icon is-small">
-                          <FontAwesomeIcon icon={faEdit} />
-                        </span>
-                      </a>
-                    )}
-                    <a
-                      className="button is-danger is-outlined"
-                      onClick={this.props.openDeleteModal}
-                    >
-                      <span className="icon is-small">
-                        <FontAwesomeIcon icon={faTrashAlt} />
-                      </span>
-                    </a>
-                  </p>
-                </div>
-              </div>
             </div>
             <hr />
           </div>
@@ -297,3 +282,67 @@ PvListRow.propTypes = {
 };
 
 export default PvListRow;
+
+// previous version before issue #14
+// {
+//   content.voterFileRecord.state_file_id ? (
+//     <div className="content">
+//       <strong>
+//         {content.voterFileRecord.first_name} {content.voterFileRecord.last_name} ({
+//           content.voterFileRecord.party
+//         })
+//                     </strong>
+//       <br />
+//       <small>
+//         {content.voterFileRecord.home_address} - {content.voterFileRecord.city},{' '}
+//         {content.voterFileRecord.state} {content.voterFileRecord.zipcode}
+//       </small>
+//       <br />
+//       <small>
+//         Points: {content.pointsEarned} / {content.pointsPotential}
+//       </small>
+//       <br />
+//       <small>
+//         Voter Propensity Score: {content.voterFileRecord.propensity_score} / 4
+//                     </small>
+//     </div>
+//   ) : (
+//     <div className="content">
+//       <strong>
+//         {content.first_name} {content.last_name}
+//       </strong>
+//       <br />
+//       <small>{content.city}</small>
+//       <br />
+//       <small>
+//         Points: {content.pointsEarned} / {content.pointsPotential}
+//       </small>
+//     </div>
+//   )
+// }
+
+// This was hoverable edit buttons before #14
+// <div className="column is-one-fifth">
+//   <div className="field is-grouped">
+//     <p className="control">
+//       {content.voterFileRecord.state_file_id ? null : (
+//         <a
+//           className="button is-danger is-outlined"
+//           onClick={this.props.openPvEditModal}
+//         >
+//           <span className="icon is-small">
+//             <FontAwesomeIcon icon={faEdit} />
+//           </span>
+//         </a>
+//       )}
+//       <a
+//         className="button is-danger is-outlined"
+//         onClick={this.props.openDeleteModal}
+//       >
+//         <span className="icon is-small">
+//           <FontAwesomeIcon icon={faTrashAlt} />
+//         </span>
+//       </a>
+//     </p>
+//   </div>
+// </div>
