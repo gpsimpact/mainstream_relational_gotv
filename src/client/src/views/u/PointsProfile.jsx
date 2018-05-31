@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
 import POINTS_PROFILE_USER_ORG_LIMITED from '../../data/queries/pointsProfileUserOrgLimited';
 import { getUserEmail } from '../../utils/auth';
@@ -32,6 +32,13 @@ class PointsProfile extends PureComponent {
                     ? points.items[0].potential
                     : 0}{' '}
                   points by completing tasks. Click on a contact to complete tasks.
+                </p>
+                <p>
+                  <small>
+                    <Link to="/instructions" target="_blank">
+                      Points explainer
+                    </Link>
+                  </small>
                 </p>
               </div>
             );
