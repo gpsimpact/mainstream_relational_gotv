@@ -44,7 +44,10 @@ class HomePage extends PureComponent {
                     contact them, or register as an ambassador for their Voter to Voter effort.
                     Thank you for being engaged.
                   </p>
-                  <Query query={ALL_ORGS} variables={{ limit: 200 }}>
+                  <Query
+                    query={ALL_ORGS}
+                    variables={{ limit: 200, orderBy: [{ sort: 'name', direction: 'ASC' }] }}
+                  >
                     {({ loading, error, data }) => {
                       if (loading) return <div className="loader" />;
                       if (error) return <p>Error!</p>;
