@@ -183,7 +183,7 @@ class PvListRow extends PureComponent {
                                       content.voterFileRecord.vo_voted_primary === true,
                                   })}
                                 >
-                                  <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
+                                  <abbr title="Has this contact cast a ballot in the primary election?">
                                     Voted?
                                   </abbr>
                                 </span>
@@ -244,22 +244,22 @@ class PvListRow extends PureComponent {
                                 <span
                                   className={classNames('tag', 'is-white', {
                                     'tag-button-danger':
-                                      content.voterFileRecord.vo_voted_primary === false,
+                                      content.voterFileRecord.vo_voted_general === false,
                                     'tag-button-success':
-                                      content.voterFileRecord.vo_voted_primary === true,
+                                      content.voterFileRecord.vo_voted_general === true,
                                   })}
                                 >
-                                  <abbr title="Has this contact cast a ballot in the Nov. 2018 primary election?">
+                                  <abbr title="Has this contact cast a ballot in the general election?">
                                     Voted?
                                   </abbr>
                                 </span>
                                 <span
                                   className={classNames('tag', {
-                                    'is-danger': content.voterFileRecord.vo_voted_primary === false,
-                                    'is-success': content.voterFileRecord.vo_voted_primary === true,
+                                    'is-danger': content.voterFileRecord.vo_voted_general === false,
+                                    'is-success': content.voterFileRecord.vo_voted_general === true,
                                   })}
                                 >
-                                  {content.voterFileRecord.vo_voted_primary ? 'Yes' : 'No'}
+                                  {content.voterFileRecord.vo_voted_general ? 'Yes' : 'No'}
                                 </span>
                               </div>
                             </div>

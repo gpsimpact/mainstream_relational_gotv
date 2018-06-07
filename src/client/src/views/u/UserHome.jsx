@@ -82,7 +82,7 @@ class UserHome extends PureComponent {
                         Voted?
                       </abbr>
                     </dt>
-                    <dd>Has this contact cast a ballot in the Nov. 2018 primary election?</dd>
+                    <dd>Has this contact cast a ballot in this election?</dd>
                   </dl>
                 </small>
               </div>
