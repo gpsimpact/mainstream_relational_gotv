@@ -83,7 +83,7 @@ class VoteByMailModal extends Component {
                 <div>
                   <p>
                     With advance voting, any registered voter can vote by mail before election day.
-                    We reccomend you encourage your contacts to vote by mail for several reasons:
+                    We recommend you encourage your contacts to vote by mail for several reasons:
                   </p>
                   <ul>
                     <li>Voters can skip the lines on election day!</li>
