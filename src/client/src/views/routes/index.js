@@ -6,6 +6,7 @@ import Auth from '../auth';
 import OrgLanding from '../OrgLanding';
 import U from '../u';
 import Instructions from '../Instructions';
+import Privacy from '../Privacy';
 // import Login from '../auth/Login';
 // import ForgotPassword from '../../components/ForgotPassword';
 // import ResetPassword from '../../components/ResetPassword';
@@ -18,6 +19,7 @@ export const Routes = (
       <Route path="/auth" component={Auth} />
       <Route path="/u" component={U} />
       <Route path="/instructions" component={Instructions} />
+      <Route path="/privacy" component={Privacy} />
       <Route path="/org/:slug" component={OrgLanding} />
       <Route component={FourOhFour} />
     </Switch>

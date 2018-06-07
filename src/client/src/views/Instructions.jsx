@@ -4,7 +4,7 @@ class Instructions extends PureComponent {
   render() {
     return (
       <div>
-        <section className="hero is-primary is-bold">
+        <section className="hero is-vtov-blue is-bold">
           <div className="hero-body">
             <div className="container">
               <h1 className="title">Instructions</h1>
