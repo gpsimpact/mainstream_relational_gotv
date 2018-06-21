@@ -26,7 +26,10 @@ class Register extends PureComponent {
 
     let qs = querystring.parse(this.props.location.search.slice(1));
     return (
-      <Query query={ALL_ORGS}>
+      <Query
+        query={ALL_ORGS}
+        variables={{ limit: 200, orderBy: [{ sort: 'name', direction: 'ASC' }] }}
+      >
         {({ loading, error, data }) => {
           if (loading) return <div className="loader" />;
           if (error) return <p>Error!</p>;
