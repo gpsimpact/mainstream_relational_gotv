@@ -22,9 +22,10 @@ class HomePage extends PureComponent {
                 <div className="content">
                   <h2>Ready to make a difference?</h2>
                   <p>
-                    Welcome to the online tool for the non-partisan Voter to Voter project. We are
-                    using this website to connect partner organization ambassadors with the every
-                    day voters they know. As an ambassador for your organization, you'll have a
+                    Welcome to the online tool for the non-partisan{' '}
+                    <a href="https://www.be-a-voter.org/voter_to_voter">Voter to Voter project</a>.
+                    We are using this website to connect partner organization ambassadors with the
+                    every day voters they know. As an ambassador for your team, you'll have a
                     dashboard where you can identify your friends, family, or peers, and guide them
                     through the process of becoming engaged voters. The tool will let you keep track
                     of their progress, and will provide tips, timely messaging, and optional tasks
@@ -38,11 +39,11 @@ class HomePage extends PureComponent {
                       learn more about Voter to Voter at our website.
                     </a>
                   </p>
-                  <h2>Voter to Voter Partner Organizations</h2>
+                  <h2>Voter to Voter Partner Teams</h2>
                   <p>
-                    Find your organization in the list below and click to learn more about them,
-                    contact them, or register as an ambassador for their Voter to Voter effort.
-                    Thank you for being engaged.
+                    Find your team in the list below and click to learn more about them, contact
+                    them, or register as an ambassador for their Voter to Voter effort. Thank you
+                    for being engaged.
                   </p>
                   <Query
                     query={ALL_ORGS}
