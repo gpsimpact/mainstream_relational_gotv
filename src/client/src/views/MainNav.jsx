@@ -5,8 +5,12 @@ import PropTypes from 'prop-types';
 import { logout } from '../utils/auth';
 import { withRouter, Link } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import classnames from 'classnames';
 
 class MainNav extends PureComponent {
+  state = {
+    hamburgerOpen: false,
+  };
   render() {
     return (
       <nav className="navbar has-shadow">
@@ -14,14 +18,25 @@ class MainNav extends PureComponent {
           <Link className="navbar-item is-size-4 has-text-weight-bold" to="/">
             <img src="/vtovlogo.png" alt="Voter to Voter. Personal. Powerful." height="40" />
           </Link>
-          <div className="navbar-burger">
+          <div
+            className={classnames('navbar-burger', {
+              'is-active': this.state.hamburgerOpen,
+            })}
+            onClick={() => {
+              this.setState({ hamburgerOpen: !this.state.hamburgerOpen });
+            }}
+          >
             <span />
             <span />
             <span />
           </div>
         </div>
 
-        <div className="navbar-menu">
+        <div
+          className={classnames('navbar-menu', {
+            'is-active': this.state.hamburgerOpen,
+          })}
+        >
           <div className="navbar-start">
             <div className="navbar-item">
               <small>Personal. Powerful.</small>
