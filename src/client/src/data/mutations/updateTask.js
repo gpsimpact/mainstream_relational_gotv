@@ -51,6 +51,7 @@ const UPDATE_TASK = gql`
           status
           form_schema
           point_value
+          sequence
         }
       }
     }

@@ -37,6 +37,7 @@ export default {
     ],
   },
   point_value: 1,
+  sequence: 5,
   status: 'INCOMPLETE',
   description: 'Make sure this voter has a plan to vote',
 };

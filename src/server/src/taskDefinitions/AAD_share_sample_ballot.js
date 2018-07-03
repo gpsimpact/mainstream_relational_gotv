@@ -37,6 +37,7 @@ export default {
     ],
   },
   point_value: 1,
+  sequence: 4,
   status: 'INCOMPLETE',
   description: 'Share a sample ballot with this voter',
 };

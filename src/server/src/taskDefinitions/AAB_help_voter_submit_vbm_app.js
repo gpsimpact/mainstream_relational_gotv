@@ -37,6 +37,7 @@ export default {
     ],
   },
   point_value: 1,
+  sequence: 2,
   status: 'INCOMPLETE',
   description: 'Help this voter submit a vote-by-mail application',
 };

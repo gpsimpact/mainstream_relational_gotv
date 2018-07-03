@@ -53,6 +53,7 @@ const MY_POTENTIAL_VOTERS = gql`
           status
           form_schema
           point_value
+          sequence
         }
       }
       pageInfo {

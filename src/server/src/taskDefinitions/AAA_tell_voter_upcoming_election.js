@@ -37,6 +37,7 @@ export default {
     ],
   },
   point_value: 1,
+  sequence: 1,
   status: 'INCOMPLETE',
   description: 'Tell this voter about the upcoming election',
 };

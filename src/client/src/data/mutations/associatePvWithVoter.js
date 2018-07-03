@@ -47,6 +47,7 @@ const ASSOCIATE_PV_VOTER = gql`
         status
         form_schema
         point_value
+        sequence
       }
     }
   }

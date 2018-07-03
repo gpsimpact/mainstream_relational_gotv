@@ -30,6 +30,7 @@ const POTENTIAL_VOTER_INFO = gql`
         status
         form_schema
         point_value
+        sequence
       }
     }
   }

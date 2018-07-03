@@ -21,6 +21,7 @@ class TaskModal extends PureComponent {
   render() {
     const { potentialVoter } = this.props;
     const sortedTasks = sortBy(potentialVoter.tasks, 'status').reverse();
+    const sequenceSortedTasks = sortBy(sortedTasks, 'sequence');
     return (
       <div className={classNames('modal', { 'is-active': this.props.open })}>
         <div className="modal-background" onClick={() => this.props.close()} />
@@ -38,7 +39,10 @@ class TaskModal extends PureComponent {
                   refetchQueries={[
                     {
                       query: POINTS_PROFILE_USER_ORG_LIMITED,
-                      variables: { email: getUserEmail(), org_id: this.props.match.params.orgSlug },
+                      variables: {
+                        email: getUserEmail(),
+                        org_id: this.props.match.params.orgSlug,
+                      },
                     },
                   ]}
                 >
@@ -62,7 +66,7 @@ class TaskModal extends PureComponent {
                         />
                       ) : (
                         <div>
-                          {sortedTasks.length > 0 ? (
+                          {sequenceSortedTasks.length > 0 ? (
                             <div className="content">
                               <h4>
                                 Click a task below to preview or complete. Completed tasks earn
@@ -77,7 +81,7 @@ class TaskModal extends PureComponent {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {sortedTasks.map(task => (
+                                  {sequenceSortedTasks.map(task => (
                                     <tr
                                       className={classNames('task_row', {
                                         complete: task.status === 'COMPLETE',

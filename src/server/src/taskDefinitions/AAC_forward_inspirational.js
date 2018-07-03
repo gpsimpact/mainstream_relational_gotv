@@ -37,6 +37,7 @@ export default {
     ],
   },
   point_value: 1,
+  sequence: 3,
   status: 'INCOMPLETE',
   description: 'Forward inspirational stories about why voting is important',
 };

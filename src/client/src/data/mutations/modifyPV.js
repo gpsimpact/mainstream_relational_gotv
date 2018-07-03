@@ -47,6 +47,7 @@ const UPDATE_PV = gql`
         status
         form_schema
         point_value
+        sequence
       }
     }
   }
