@@ -44,7 +44,11 @@ class PvListRow extends PureComponent {
                     </small>
                     <br />
                     <small>
-                      Points: {content.pointsEarned} / {content.pointsPotential}
+                      Points:{' '}
+                      {content.pointsEarned > content.pointsPotential
+                        ? content.pointsPotential
+                        : content.pointsEarned}{' '}
+                      / {content.pointsPotential}
                     </small>
                     <br />
                     <small>
