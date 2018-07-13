@@ -34,7 +34,7 @@ class ForgotPassword extends PureComponent {
                   return sendPasswordResetEmail({
                     variables: {
                       email: values.email.toLowerCase().trim(), // force for case insensitivity
-                      base_url: window.location.host,
+                      base_url: `${window.location.protocol}//${window.location.host}`,
                     },
                   })
                     .then(({ data }) => {

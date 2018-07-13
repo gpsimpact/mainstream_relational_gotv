@@ -39,8 +39,8 @@ class PotentialVotersConnector {
       if (fetchPayload.ttl) {
         await this.redisDb.set(key, JSON.stringify(data), 'EX', fetchPayload.ttl);
       }
+      data.pageInfo.fromCache = false;
     }
-    data.pageInfo.fromCache = false;
     return data;
   };
 
