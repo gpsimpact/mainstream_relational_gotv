@@ -131,13 +131,13 @@ class UserModel {
 
   sendPasswordResetEmail = async ({ email, base_url }, ctx) => {
     const token = jwt.sign({ email }, process.env.JWT_SECRET);
-    const content = buildEmail('resetPassword', { token, base_url });
+    // const content = buildEmail('resetPassword', { token, base_url });
     const messageData = {
       from: process.env.MAILGUN_EMAIL_SENDER,
       to: email,
-      subject: content.subject,
-      html: content.html,
-      txt: content.txt,
+      subject: 'VoterToVoter.org Password Reset Request',
+      html: `<html><p>Thank you for being engaged, we’re sorry you are having trouble logging in. </p><p>You can reset your password by visiting…<a href="${base_url}/auth/reset-password?token=${token}">here</a></p><p>If you continue to have trouble, please don’t hesitate to contact us at admin@mainstreamcoalition.org. or call (913) 649-3326.</p></html>`,
+      txt: `Thank you for being engaged, we’re sorry you are having trouble logging in. You can reset your password by visiting… ${base_url}/auth/reset-password?token=${token} If you continue to have trouble, please don’t hesitate to contact us at admin@mainstreamcoalition.org. or call (913) 649-3326.`,
     };
     // eslint-disable-next-line no-console
     ctx.connectors.sendEmail(messageData).catch(err => console.log(err));
