@@ -19,25 +19,28 @@ class PvListRow extends PureComponent {
           <div>
             <div className="columns">
               <div className="column">
-                {content.voterFileRecord.state_file_id ? (
+                {content && content.voterFileRecord && content.voterFileRecord.state_file_id ? (
                   <div className="content">
                     <strong>
                       {content.first_name} {content.last_name}
                     </strong>{' '}
                     <small>
-                      (<a href="#" onClick={this.props.openPvEditModal}>
+                      (
+                      <a href="#" onClick={this.props.openPvEditModal}>
                         Edit
-                      </a>) (<a href="#" onClick={this.props.openDeleteModal}>
+                      </a>
+                      ) (
+                      <a href="#" onClick={this.props.openDeleteModal}>
                         Delete
-                      </a>)
+                      </a>
+                      )
                     </small>
                     <br />
                     as{' '}
                     <a href="#" onClick={this.props.openVoterReviewModal}>
                       {content.voterFileRecord.first_name} {content.voterFileRecord.last_name}
                     </a>{' '}
-                    ({content.voterFileRecord.party})
-                    <br />
+                    ({content.voterFileRecord.party})<br />
                     <small>
                       {content.voterFileRecord.city}, {content.voterFileRecord.state}{' '}
                       {content.voterFileRecord.zipcode}
@@ -61,11 +64,15 @@ class PvListRow extends PureComponent {
                       {content.first_name} {content.last_name}
                     </strong>{' '}
                     <small>
-                      (<a href="#" onClick={this.props.openPvEditModal}>
+                      (
+                      <a href="#" onClick={this.props.openPvEditModal}>
                         Edit
-                      </a>) (<a href="#" onClick={this.props.openDeleteModal}>
+                      </a>
+                      ) (
+                      <a href="#" onClick={this.props.openDeleteModal}>
                         Delete
-                      </a>)
+                      </a>
+                      )
                     </small>
                     <br />
                     <small>{content.city}</small>
@@ -102,8 +109,8 @@ class PvListRow extends PureComponent {
                                 'is-success': content.countAvailableTasks === 0,
                               })}
                             >
-                              {content.countCompletedTasks}/{content.countAvailableTasks +
-                                content.countCompletedTasks}
+                              {content.countCompletedTasks}/
+                              {content.countAvailableTasks + content.countCompletedTasks}
                             </span>
                           </div>
                         </div>
@@ -115,8 +122,13 @@ class PvListRow extends PureComponent {
                           >
                             <span
                               className={classNames('tag', 'is-white', {
-                                'tag-button-danger': content.voterFileRecord.state_file_id === null,
+                                'tag-button-danger':
+                                  content &&
+                                  content.voterFileRecord &&
+                                  content.voterFileRecord.state_file_id === null,
                                 'tag-button-success':
+                                  content &&
+                                  content.voterFileRecord &&
                                   content.voterFileRecord.state_file_id !== null,
                               })}
                             >
@@ -126,11 +138,21 @@ class PvListRow extends PureComponent {
                             </span>
                             <span
                               className={classNames('tag', {
-                                'is-danger': content.voterFileRecord.state_file_id === null,
-                                'is-success': content.voterFileRecord.state_file_id !== null,
+                                'is-danger':
+                                  content &&
+                                  content.voterFileRecord &&
+                                  content.voterFileRecord.state_file_id === null,
+                                'is-success':
+                                  content &&
+                                  content.voterFileRecord &&
+                                  content.voterFileRecord.state_file_id !== null,
                               })}
                             >
-                              {content.voterFileRecord.state_file_id ? 'Yes' : 'No'}
+                              {content &&
+                              content.voterFileRecord &&
+                              content.voterFileRecord.state_file_id
+                                ? 'Yes'
+                                : 'No'}
                             </span>
                           </div>
                         </div>
