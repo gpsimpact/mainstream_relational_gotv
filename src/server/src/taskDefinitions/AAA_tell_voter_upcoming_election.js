@@ -19,6 +19,7 @@ export default {
           { value: 'text', label: 'Text' },
           { value: 'phone', label: 'Phone' },
           { value: 'inperson', label: 'In person' },
+          { value: 'socialmedia', label: 'Social Media' },
           { value: 'other', label: 'Other' },
         ],
         initialValue: '',
