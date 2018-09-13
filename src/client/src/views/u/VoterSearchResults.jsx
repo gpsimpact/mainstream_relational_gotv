@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import VOTER_SEARCH from '../../data/queries/voterSearch';
-import { Query } from 'react-apollo';
+import React, { PureComponent } from "react";
+import VOTER_SEARCH from "../../data/queries/voterSearch";
+import { Query } from "react-apollo";
 // import { withRouter } from 'react-router-dom';
 // import { Row, Col } from 'reactstrap';
 // import { parse, differenceInCalendarYears } from 'date-fns';
 // import AssociateVoterButton from './AssociateVoterButton';
 // import { faBadgeCheck, faExclamation } from '@fortawesome/fontawesome-pro-solid';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { InfiniteLoader, AutoSizer, List } from 'react-virtualized';
-import PropTypes from 'prop-types';
-import { uniqBy } from 'lodash';
-import NoVoterMatchDialogue from './NoVoterMatchDialogue';
-import VoterSearchResultsRow from './VoterSearchResultsRow';
+import { InfiniteLoader, AutoSizer, List } from "react-virtualized";
+import PropTypes from "prop-types";
+import { uniqBy } from "lodash";
+import NoVoterMatchDialogue from "./NoVoterMatchDialogue";
+import VoterSearchResultsRow from "./VoterSearchResultsRow";
 
 export class VoterSearchResults extends PureComponent {
   render() {
@@ -24,7 +24,7 @@ export class VoterSearchResults extends PureComponent {
             first_name: this.props.first_name,
             last_name: this.props.last_name,
             city: this.props.city,
-            state: this.props.state,
+            state: this.props.state
           }}
         >
           {({ data: { voters }, loading, error, fetchMore }) => {
@@ -43,22 +43,25 @@ export class VoterSearchResults extends PureComponent {
                         loadMoreRows={() =>
                           fetchMore({
                             variables: {
-                              after: voters.pageInfo.nextCursor,
+                              after: voters.pageInfo.nextCursor
                             },
-                            updateQuery: (previousResult, { fetchMoreResult }) => {
+                            updateQuery: (
+                              previousResult,
+                              { fetchMoreResult }
+                            ) => {
                               if (!fetchMoreResult) return previousResult;
                               const newItems = fetchMoreResult.voters.items;
                               fetchMoreResult.voters.items = [
                                 ...previousResult.voters.items,
-                                ...newItems,
+                                ...newItems
                               ];
                               //dedupe by id
                               fetchMoreResult.voters.items = uniqBy(
                                 fetchMoreResult.voters.items,
-                                'state_file_id'
+                                "state_file_id"
                               );
                               return fetchMoreResult;
-                            },
+                            }
                           })
                         }
                         rowCount={voters.pageInfo.totalCount}
@@ -80,7 +83,6 @@ export class VoterSearchResults extends PureComponent {
                                 } else {
                                   content = <div>Loading.....</div>;
                                 }
-                                console.log(content);
                                 return (
                                   <div key={index} style={style}>
                                     <VoterSearchResultsRow
@@ -115,7 +117,7 @@ VoterSearchResults.propTypes = {
   last_name: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  pv_id: PropTypes.string.isRequired,
+  pv_id: PropTypes.string.isRequired
 };
 
 export default VoterSearchResults;

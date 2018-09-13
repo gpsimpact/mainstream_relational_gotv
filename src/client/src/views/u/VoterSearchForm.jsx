@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import Yup from 'yup';
-import { Formik } from 'formik';
-import TextInput from '../../components/elements/TextInput';
-import PropTypes from 'prop-types';
+import React, { PureComponent } from "react";
+import Yup from "yup";
+import { Formik } from "formik";
+import TextInput from "../../components/elements/TextInput";
+import PropTypes from "prop-types";
 
 export class VoterSearchForm extends PureComponent {
   render() {
@@ -10,15 +10,17 @@ export class VoterSearchForm extends PureComponent {
       <div>
         <Formik
           initialValues={{
-            first_name: this.props.first_name ? this.props.first_name.trim() : '',
-            last_name: this.props.last_name ? this.props.last_name.trim() : '',
-            city: this.props.city ? this.props.city.trim() : '',
-            state: 'KS',
+            first_name: this.props.first_name
+              ? this.props.first_name.trim()
+              : "",
+            last_name: this.props.last_name ? this.props.last_name.trim() : "",
+            city: this.props.city ? this.props.city.trim() : "",
+            state: "KS"
           }}
           validationSchema={Yup.object().shape({
             // first_name: Yup.string().required('First name is required'),
-            last_name: Yup.string().required('Last name is required'),
-            city: Yup.string().required('City is required'),
+            last_name: Yup.string().required("Last name is required"),
+            city: Yup.string()
           })}
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
@@ -26,7 +28,7 @@ export class VoterSearchForm extends PureComponent {
             this.props.update({
               first_name: values.first_name.trim(),
               last_name: values.last_name.trim(),
-              city: values.city.trim(),
+              city: values.city.trim()
             });
           }}
           enableReinitialize={true}
@@ -37,7 +39,7 @@ export class VoterSearchForm extends PureComponent {
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting,
+            isSubmitting
           }) => (
             <form onSubmit={handleSubmit}>
               <div className="columns">
@@ -102,7 +104,7 @@ VoterSearchForm.propTypes = {
   first_name: PropTypes.string,
   last_name: PropTypes.string,
   city: PropTypes.string,
-  update: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired
 };
 
 export default VoterSearchForm;
