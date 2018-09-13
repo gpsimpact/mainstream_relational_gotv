@@ -90,81 +90,16 @@ class PvListRow extends PureComponent {
                 <div className="custom-controls">
                   <div className="columns">
                     <div className="column">
-                      <div className="field is-grouped is-grouped-multiline">
-                        <div className="control">
-                          <div
-                            className="tags has-addons hover-hand"
-                            onClick={this.props.openTaskModal}
-                          >
-                            <span
-                              className={classNames("tag", "is-white", {
-                                "tag-button-danger":
-                                  content.countAvailableTasks > 0,
-                                "tag-button-success":
-                                  content.countAvailableTasks === 0
-                              })}
-                            >
-                              <abbr title="The count of available tasks for that contact.">
-                                TASKS:
-                              </abbr>
-                            </span>
-                            <span
-                              className={classNames("tag", {
-                                "is-danger": content.countAvailableTasks > 0,
-                                "is-success": content.countAvailableTasks === 0
-                              })}
-                            >
-                              {content.countCompletedTasks}/
-                              {content.countAvailableTasks +
-                                content.countCompletedTasks}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="control">
-                          <div
-                            className="tags has-addons hover-hand"
-                            onClick={this.props.openVoterReviewModal}
-                          >
-                            <span
-                              className={classNames("tag", "is-white", {
-                                "tag-button-danger":
-                                  content &&
-                                  content.voterFileRecord &&
-                                  content.voterFileRecord.state_file_id ===
-                                    null,
-                                "tag-button-success":
-                                  content &&
-                                  content.voterFileRecord &&
-                                  content.voterFileRecord.state_file_id !== null
-                              })}
-                            >
-                              <abbr title="Has this contact been matched to a registered voter in the voter file?">
-                                Registered?
-                              </abbr>
-                            </span>
-                            <span
-                              className={classNames("tag", {
-                                "is-danger":
-                                  content &&
-                                  content.voterFileRecord &&
-                                  content.voterFileRecord.state_file_id ===
-                                    null,
-                                "is-success":
-                                  content &&
-                                  content.voterFileRecord &&
-                                  content.voterFileRecord.state_file_id !== null
-                              })}
-                            >
-                              {content &&
-                              content.voterFileRecord &&
-                              content.voterFileRecord.state_file_id
-                                ? "Yes"
-                                : "No"}
-                            </span>
-                          </div>
-                        </div>
+                      {/* Start of tasks */}
+                      <div>
+                        <a onClick={this.props.openTaskModal}>
+                          Task stuff here ({content.countCompletedTasks}/
+                          {content.countAvailableTasks +
+                            content.countCompletedTasks}
+                          )
+                        </a>
                       </div>
+                      {/* End of tasks */}
                     </div>
                   </div>
                   {content.voterFileRecord &&
@@ -429,5 +364,39 @@ export default PvListRow;
 //         </span>
 //       </a>
 //     </p>
+//   </div>
+// </div>
+
+///  TASKS OLD SCHOOL
+
+// <div className="field is-grouped is-grouped-multiline">
+//   <div className="control">
+//     <div
+//       className="tags has-addons hover-hand"
+//       onClick={this.props.openTaskModal}
+//     >
+//       <span
+//         className={classNames("tag", "is-white", {
+//           "tag-button-danger":
+//             content.countAvailableTasks > 0,
+//           "tag-button-success":
+//             content.countAvailableTasks === 0
+//         })}
+//       >
+//         <abbr title="The count of available tasks for that contact.">
+//           TASKS:
+//                               </abbr>
+//       </span>
+//       <span
+//         className={classNames("tag", {
+//           "is-danger": content.countAvailableTasks > 0,
+//           "is-success": content.countAvailableTasks === 0
+//         })}
+//       >
+//         {content.countCompletedTasks}/
+//                               {content.countAvailableTasks +
+//           content.countCompletedTasks}
+//       </span>
+//     </div>
 //   </div>
 // </div>
